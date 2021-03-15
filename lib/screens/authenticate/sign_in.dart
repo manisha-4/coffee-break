@@ -1,6 +1,9 @@
+import 'package:brew_crew/homeDecide/home_page_decide.dart';
+import 'package:brew_crew/models/user.dart';
 import 'package:brew_crew/services/auth.dart';
 import 'package:brew_crew/shared/constants.dart';
 import 'package:brew_crew/shared/loading.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SignIn extends StatefulWidget {
@@ -72,14 +75,34 @@ class _SignInState extends State<SignIn> {
                 ),
                 onPressed: () async {
                   if(_formKey.currentState.validate()){
-                    setState(() => loading = true);
-                    dynamic result = await _auth.signInWithEmailAndPassword(email, password);
-                    if(result == null) {
+                    try{
+
+                           setState(() => loading = true);
+                    FirebaseUser user = await _auth.signInWithEmailAndPassword(email, password);
+
+if(user == null) {
                       setState(() {
                         loading = false;
                         error = 'Could not sign in with those credentials';
                       });
                     }
+                    else{
+                      setState((){
+                        loading = false;
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeDecide(user: user)));
+                      });
+                    }
+
+                    }
+                    catch(e)
+                    {
+                      print(e.toString());
+                    }
+                 
+                    /// CHANGE OCCUR 
+                    
+
+                    
                   }
                 }
               ),
