@@ -45,7 +45,7 @@ class _HomeDecideState extends State<HomeDecide> {
   }
 
     checkRole(DocumentSnapshot snapshot) {
-    if (snapshot.data['role'] == 'admin') {
+    if (snapshot.data['email'] == 'manisha@gmail.com') {
       return  adminHomePage();
      
     } else { return Home();

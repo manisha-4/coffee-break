@@ -11,7 +11,15 @@ class UserData {
   final String name;
   final String sugars;
   final int strength;
+  
 
-  UserData({ this.uid, this.sugars, this.strength, this.name });
+  UserData({this.uid, this.sugars, this.strength, this.name });
 
 }
+
+
+/*class UserContact{
+  final String uid;
+  
+  UserContact({});
+}*/

@@ -1,5 +1,6 @@
 import 'package:brew_crew/homeDecide/home_page_decide.dart';
 import 'package:brew_crew/models/user.dart';
+import 'package:brew_crew/screens/home/home.dart';
 import 'package:brew_crew/services/auth.dart';
 import 'package:brew_crew/shared/constants.dart';
 import 'package:brew_crew/shared/loading.dart';
@@ -97,7 +98,7 @@ class _SignInState extends State<SignIn> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              HomeDecide(user: user)));
+                                              Home()));
                                 });
                               }
                             } catch (e) {

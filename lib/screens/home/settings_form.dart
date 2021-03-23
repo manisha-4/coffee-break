@@ -17,6 +17,7 @@ class _SettingsFormState extends State<SettingsForm> {
   final List<int> strengths = [100, 200, 300, 400, 500, 600, 700, 800, 900];
 
   // form values
+ 
   String _currentName;
   String _currentSugars;
   int _currentStrength;
@@ -39,8 +40,8 @@ class _SettingsFormState extends State<SettingsForm> {
                   'Update your brew settings.',
                   style: TextStyle(fontSize: 18.0),
                 ),
-                SizedBox(height: 20.0),
-                TextFormField(
+                SizedBox(height: 10.0),
+                  TextFormField(
                   initialValue: userData.name,
                   decoration: textInputDecoration,
                   validator: (val) => val.isEmpty ? 'Please enter a name' : null,
@@ -48,7 +49,7 @@ class _SettingsFormState extends State<SettingsForm> {
                 ),
                 SizedBox(height: 10.0),
                 DropdownButtonFormField(
-                  value: _currentSugars ?? userData.sugars,
+                  value:  _currentSugars?? userData.sugars,
                   decoration: textInputDecoration,
                   items: sugars.map((sugar) {
                     return DropdownMenuItem(
@@ -77,9 +78,11 @@ class _SettingsFormState extends State<SettingsForm> {
                   onPressed: () async {
                     if(_formKey.currentState.validate()){
                       await DatabaseService(uid: user.uid).updateUserData(
+                        
                         _currentSugars ?? snapshot.data.sugars, 
                         _currentName ?? snapshot.data.name, 
                         _currentStrength ?? snapshot.data.strength
+
                       );
                       Navigator.pop(context);
                     }
