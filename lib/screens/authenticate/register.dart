@@ -1,7 +1,10 @@
+import 'package:brew_crew/models/user.dart';
 import 'package:brew_crew/services/auth.dart';
 import 'package:brew_crew/shared/constants.dart';
 import 'package:brew_crew/shared/loading.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
 
 class Register extends StatefulWidget {
 
@@ -13,7 +16,7 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-
+//final FirebaseAuth _auh = FirebaseAuth.instance;
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
   String error = '';
@@ -22,6 +25,8 @@ class _RegisterState extends State<Register> {
   // text field state
   String email = '';
   String password = '';
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -88,10 +93,14 @@ class _RegisterState extends State<Register> {
                 error,
                 style: TextStyle(color: Colors.red, fontSize: 14.0),
               )
-            ],
-          ),
-        ),
-      ),
-    );
+              
+
+                            ],
+                          ),
+                        ),
+          
+    ));
+        
+     
   }
 }
