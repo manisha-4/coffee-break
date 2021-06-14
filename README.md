@@ -1,6 +1,7 @@
 # brew_crew
+A flutter project
 
-A new Flutter project .
+A mobile application that will halp you to take a nice break and refresh your mood. You can spend your coffee break time by placing an order for coffee in break time as weel as talk with virtual  assistant and  it will help you to listen music as well as follow your command.you can also do your payment through this.
 
 ## Getting Started
 
